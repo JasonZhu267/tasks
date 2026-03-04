@@ -1,6 +1,7 @@
 import { Answer } from "./interfaces/answer";
 import { Question, QuestionType } from "./interfaces/question";
 import { duplicateQuestion } from "./objects";
+import { makeBlankQuestion } from "./objects";
 
 /**
  * Consumes an array of questions and returns a new array with only the questions
@@ -10,7 +11,7 @@ export function getPublishedQuestions(questions: Question[]): Question[] {
     let publishedQuestions: Question[] = [];
     for (let i = 0; i < questions.length; i++) {
         if (questions[i].published) {
-            publishedQuestions.push(questions[i]);
+            publishedQuestions.push({ ...questions[i] });
         }
     }
     return publishedQuestions;
@@ -25,9 +26,11 @@ export function getNonEmptyQuestions(questions: Question[]): Question[] {
     let nonEmptyQuestions: Question[] = [];
     for (let i = 0; i < questions.length; i++) {
         if (
-            questions[i].body === "" &&
-            questions[i].expected === "" &&
-            questions[i].options.length === 0
+            !(
+                questions[i].body == "" &&
+                questions[i].expected == "" &&
+                questions[i].options.length == 0
+            )
         ) {
             nonEmptyQuestions.push(questions[i]);
         }
@@ -192,18 +195,9 @@ export function addNewQuestion(
 ): Question[] {
     let newQuestion: Question[] = [];
     for (let i = 0; i < questions.length; i++) {
-        newQuestion.push({
-            ...questions[i],
-            id: id,
-            name: name,
-            body: "",
-            type: type,
-            options: [],
-            expected: "",
-            points: 1,
-            published: false,
-        });
+        newQuestion.push(questions[i]);
     }
+    newQuestion.push(makeBlankQuestion(id, name, type));
     return newQuestion;
 }
 
@@ -311,5 +305,5 @@ export function duplicateQuestionInArray(
         }
     }
 
-    return [];
+    return question;
 }
