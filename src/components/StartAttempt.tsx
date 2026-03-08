@@ -3,43 +3,40 @@ import { Button } from "react-bootstrap";
 
 export function StartAttempt(): React.JSX.Element {
     const [Attempt, setAttempt] = useState<number>(4);
-    const [StartAttempt, setStartAttempt] = useState<boolean>(true);
+    const [StartAttempt, setStartAttempt] = useState<boolean>(false);
 
     return (
         <span>
+            <br />
+            <span>Attempts Remaining: {Attempt}</span>
             <Button
+                disabled={StartAttempt || !Attempt}
                 onClick={() => {
-                    if (!(StartAttempt || !Attempt)) {
-                        setStartAttempt(true);
-                        setAttempt(Attempt - 1);
-                    }
+                    setStartAttempt(true);
+                    setAttempt(Attempt - 1);
                 }}
             >
                 Start Quiz
             </Button>
-            Quiz is in progress: {StartAttempt.toString()}. There is {Attempt}{" "}
-            remaining attempts. <br />
+            <br /> <br />
             <Button
+                disabled={!StartAttempt}
                 onClick={() => {
-                    if (StartAttempt) {
-                        setStartAttempt(false);
-                    }
+                    setStartAttempt(false);
                 }}
             >
                 Stop Quiz
             </Button>
-            Quiz is in progress: {StartAttempt.toString()}. There is {Attempt}{" "}
-            remaining attempts. <br />
+            <br /> <br />
             <Button
+                disabled={StartAttempt}
                 onClick={() => {
-                    if (!StartAttempt) {
-                        setAttempt(1 + Attempt);
-                    }
+                    setAttempt(Attempt + 1);
                 }}
             >
                 Mulligan
             </Button>
-            There is {Attempt} remaining attempts. <br />
+            <br />
         </span>
     );
 }
