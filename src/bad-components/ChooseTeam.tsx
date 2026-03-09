@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Button, Row, Col } from "react-bootstrap";
 
 const PEOPLE = [
@@ -11,25 +11,24 @@ const PEOPLE = [
 ];
 
 interface ChooseTeamProps {
-    AllOptions: string[];
-    Team: string[];
-    SetTeam: (newTeam: string[]) => void;
-    SetAllOptions: (newOptions: string[]) => void;
+    allOptions: string[];
+    team: string[];
+    setTeam: (newTeam: string[]) => void;
 }
 
 export function ChooseTeam({
-    Team,
-    SetTeam,
-    AllOptions,
+    team = [],
+    setTeam = () => {},
+    allOptions = PEOPLE,
 }: ChooseTeamProps): React.JSX.Element {
     function chooseMember(newMember: string) {
-        if (!Team.includes(newMember)) {
-            SetTeam([...Team, newMember]);
+        if (!team.includes(newMember)) {
+            setTeam([...team, newMember]);
         }
     }
 
     function clearTeam() {
-        SetTeam([]);
+        setTeam([]);
     }
 
     return (
@@ -37,7 +36,7 @@ export function ChooseTeam({
             <h3>Choose Team</h3>
             <Row>
                 <Col>
-                    {AllOptions.map((option: string) => (
+                    {allOptions.map((option: string) => (
                         <div key={option} style={{ marginBottom: "4px" }}>
                             Add{" "}
                             <Button
@@ -53,10 +52,15 @@ export function ChooseTeam({
                 </Col>
                 <Col>
                     <strong>Team:</strong>
-                    {Team.map((member: string) => (
-                        <li key={member}>{member}</li>
-                    ))}
-                    <Button onClick={clearTeam}>Clear Team</Button>
+                    {/* Added <ul> here for proper list rendering */}
+                    <ul>
+                        {team.map((member: string) => (
+                            <li key={member}>{member}</li>
+                        ))}
+                    </ul>
+                    <Button onClick={clearTeam} variant="outline-danger">
+                        Clear Team
+                    </Button>
                 </Col>
             </Row>
         </div>

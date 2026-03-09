@@ -51,7 +51,6 @@ export function ColoredBox(): React.JSX.Element {
             <span>The current color is: {COLORS[DEFAULT_COLOR_INDEX]}</span>
             <div>
                 <ChangeColor
-                    s
                     colors={COLORS}
                     defaultColorIndex={DEFAULT_COLOR_INDEX}
                     setIndex={setDefaultColorIndex}

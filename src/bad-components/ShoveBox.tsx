@@ -39,7 +39,7 @@ function MoveableBox({ position }: { position: number }): React.JSX.Element {
 }
 
 export function ShoveBox(): React.JSX.Element {
-    const [position, setPosition] = useState(0);
+    const [position, setPosition] = useState(10);
 
     return (
         <div>
