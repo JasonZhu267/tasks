@@ -1,6 +1,15 @@
 import React, { useState } from "react";
 import { Button, Row, Col } from "react-bootstrap";
 
+const PEOPLE = [
+    "Alan Turing",
+    "Grace Hopper",
+    "Ada Lovelace",
+    "Charles Babbage",
+    "Barbara Liskov",
+    "Margaret Hamilton",
+];
+
 interface ChooseTeamProps {
     AllOptions: string[];
     Team: string[];
@@ -9,9 +18,6 @@ interface ChooseTeamProps {
 }
 
 export function ChooseTeam({
-
-    const 
-
     Team,
     SetTeam,
     AllOptions,
