@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Row, Col } from "react-bootstrap";
 
 const PEOPLE = [
@@ -10,17 +10,15 @@ const PEOPLE = [
     "Margaret Hamilton",
 ];
 
-interface ChooseTeamProps {
-    allOptions: string[];
-    team: string[];
-    setTeam: (newTeam: string[]) => void;
-}
+// interface ChooseTeamProps {
+//     allOptions: string[];
+//     team: string[];
+//     setTeam: (newTeam: string[]) => void;
+// }
 
-export function ChooseTeam({
-    team = [],
-    setTeam = () => {},
-    allOptions = PEOPLE,
-}: ChooseTeamProps): React.JSX.Element {
+export function ChooseTeam(): React.JSX.Element {
+    const [team, setTeam] = useState<string[]>([]);
+
     function chooseMember(newMember: string) {
         if (!team.includes(newMember)) {
             setTeam([...team, newMember]);
@@ -36,7 +34,7 @@ export function ChooseTeam({
             <h3>Choose Team</h3>
             <Row>
                 <Col>
-                    {allOptions.map((option: string) => (
+                    {PEOPLE.map((option: string) => (
                         <div key={option} style={{ marginBottom: "4px" }}>
                             Add{" "}
                             <Button
