@@ -6,7 +6,6 @@ import { ChangeType } from "./components/ChangeType";
 import { StartAttempt } from "./components/StartAttempt";
 import { TwoDice } from "./components/TwoDice";
 import { CycleHoliday } from "./components/CycleHoliday";
-import { Counter } from "./components/Counter";
 
 function App(): React.JSX.Element {
     return (
@@ -15,13 +14,15 @@ function App(): React.JSX.Element {
                 Hello World, UD CISC275 with React Hooks and TypeScript
             </header>
             <hr></hr>
-            {/* <DoubleHalf></DoubleHalf> */}
+            {/* 
+            <DoubleHalf></DoubleHalf>
             <hr></hr>
             <ChooseTeam></ChooseTeam>
             <hr></hr>
             <ColoredBox></ColoredBox>
             <hr></hr>
             <ShoveBox></ShoveBox>
+            */}
             <hr></hr>
             <Counter></Counter>
             <RevealAnswer></RevealAnswer>
