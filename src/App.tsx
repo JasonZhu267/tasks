@@ -6,14 +6,14 @@ import { ChangeType } from "./components/ChangeType";
 import { StartAttempt } from "./components/StartAttempt";
 import { TwoDice } from "./components/TwoDice";
 import { CycleHoliday } from "./components/CycleHoliday";
-import { DoubleHalf } from "./bad-components/DoubleHalf";
+//import { DoubleHalf } from "./bad-components/DoubleHalf";
 import { ColoredBox } from "./bad-components/ColoredBox";
 import { ShoveBox } from "./bad-components/ShoveBox";
 import { ChooseTeam } from "./bad-components/ChooseTeam";
-import { CheckAnswer } from "./form-components/CheckAnswer";
-import { GiveAttempts } from "./form-components/GiveAttempts";
-import { EditMode } from "./form-components/EditMode";
-import { MultipleChoiceQuestion } from "./form-components/MultipleChoiceQuestion";
+//import { CheckAnswer } from "./form-components/CheckAnswer";
+//import { GiveAttempts } from "./form-components/GiveAttempts";
+//import { EditMode } from "./form-components/EditMode";
+//import { MultipleChoiceQuestion } from "./form-components/MultipleChoiceQuestion";
 import { ChangeColor } from "./form-components/ChangeColor";
 
 function App(): React.JSX.Element {
@@ -37,6 +37,7 @@ function App(): React.JSX.Element {
             <StartAttempt></StartAttempt>
             <TwoDice></TwoDice>
             <CycleHoliday></CycleHoliday>
+            <ChangeColor></ChangeColor>
             <hr />
         </div>
     );
