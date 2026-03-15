@@ -19,7 +19,7 @@ export function MultipleChoiceQuestion({
             <h3>Multiple Choice Question</h3>
 
             <Form.Group controlId="selectedOption">
-                <Form.Label>How do you feel?</Form.Label>
+                <Form.Label>MultipleChoiceQuestion</Form.Label>
                 <Form.Select value={selectedOption} onChange={updateOption}>
                     {options.map((Option: string) => (
                         <option key={Option} value={Option}>
