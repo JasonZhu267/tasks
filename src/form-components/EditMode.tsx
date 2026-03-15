@@ -49,7 +49,7 @@ export function EditMode(): React.JSX.Element {
                     />
                 </div>
             :   <div>
-                    {username} is {isStudent ? "a student" : "not a student"}{" "}
+                    {username} is {isStudent ? "a student" : "not a student"}
                 </div>
             }
         </div>
