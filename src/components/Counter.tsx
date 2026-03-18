@@ -14,6 +14,8 @@ export function Counter(): React.JSX.Element {
                 Add One
             </Button>
             to {value}. <br />
+
+}
         </span>
     );
 }
